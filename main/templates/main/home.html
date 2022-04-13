@@ -1,0 +1,129 @@
+{%extends 'main/base.html'%}
+{%load static%}
+
+{%block css%} <link rel="stylesheet" href="{%static 'css/style.css'%}">{%endblock%}
+
+
+{%block content%}
+	{%if messages%}
+	{%for message in messages%}
+	<h4 class="contact-message">{{message}} <span class="remove-message">X</span></h4>
+	{%endfor%}
+	{%endif%}
+	<div class="container-1">
+		<div class="first flexanje-between margin-top indent">
+			<div class="headline">
+				<h1 style="color:var(--purple);">DRŽAVNA MATURA</h1>
+				<p class="paragraph hind">Izaberi o čemu želiš naučiti, prati lekcije, riješavaj zadatke. <br>  Matura neće biti problem! </p>
+				<a href="#container-2" class="button-scroll"><button type="button" class="main-btn">Izaberi</button></a>
+			</div>
+
+			<div class="img-div">
+				<img src="{%static 'images/pictur3.png'%}" class="picture full-img">
+			</div>
+		</div>
+
+		<p class="watermarks watermark1 none-select hind">DRŽAVNA</p>
+		<p class="watermarks watermark2 none-select hind">MATURA</p>
+	</div>
+	<div class="container-2 indent" id="container-2">
+		<h2 class="main-title">Predmeti<span class="border"></span></h2>
+
+		<div class="cards" id="cards">
+
+			<!--samo u calss card dodat HIND i u buttonu -->
+			<!--MATKA -->
+			<div class="card">
+				<div class="image-section">
+					<img src="{%static 'images/matka.jpg'%}" class="full-img">
+				</div>
+				<span class="title hind">Matematika</span>
+				<span class="text hind">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat, elit consequat molestie efficitur, mi nisl iaculis velit, in iaculis neque sem in lorem. Donec molestie bibendum turpis, eget suscipit dolor semper a.</span>
+				<a href="{%url 'matematika'%}" class="button-link"><button class="hind" type="submit">Izaberi</button></a>
+				
+			</div>
+			<!-- HRVATSKI -->
+			<div class="card">
+				<div class="image-section">
+					<img src="{%static 'images/hrvatski.jpeg'%}" class="full-img">
+				</div>
+				<span class="title hind">Hrvatski</span>
+				<span class="text hind">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat, elit consequat molestie efficitur, mi nisl iaculis velit, in iaculis neque sem in lorem. Donec molestie bibendum turpis, eget suscipit dolor semper a.</span>
+				<a href="{%url 'hrvatski'%}" class="button-link"><button class="hind" type="submit">Izaberi</button></a>
+				
+			</div>
+			<!--ENGLESKI -->
+			<div class="card">
+				<div class="image-section">
+					<img src="{%static 'images/engleski.jpg'%}" class="full-img">
+				</div>
+				<span class="title hind">Engleski</span>
+				<span class="text hind">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat, elit consequat molestie efficitur, mi nisl iaculis velit, in iaculis neque sem in lorem. Donec molestie bibendum turpis, eget suscipit dolor semper a.</span>
+				<a href="" class="button-link"><button class="hind" type="submit">Izaberi</button></a>
+				
+			</div>
+			<!--Fizika -->
+			<div class="card">
+				<div class="image-section">
+					<img src="{%static 'images/engleski.jpg'%}" class="full-img">
+				</div>
+				<span class="title hind">Fizika</span>
+				<span class="text hind">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat, elit consequat molestie efficitur, mi nisl iaculis velit, in iaculis neque sem in lorem. Donec molestie bibendum turpis, eget suscipit dolor semper a.</span>
+				<a href="" class="button-link"><button class="hind" type="submit">Izaberi</button></a>
+				
+			</div>
+			<!--Informatika -->
+			<div class="card">
+				<div class="image-section">
+					<img src="{%static 'images/engleski.jpg'%}" class="full-img">
+				</div>
+				<span class="title hind">Informatika</span>
+				<span class="text hind">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat, elit consequat molestie efficitur, mi nisl iaculis velit, in iaculis neque sem in lorem. Donec molestie bibendum turpis, eget suscipit dolor semper a.</span>
+				<a href="" class="button-link"><button class="hind" type="submit">Izaberi</button></a>
+				
+			</div>
+		
+
+			
+		</div>
+		
+	</div>
+	
+	
+
+	<div class="container-4" id="kontakt">
+		<div class="kontakt">
+			<h2 class="main-title">Kontakt<span class="border"></span></h2>
+			
+		</div>
+		
+		
+		
+		<div class="desk-photo">
+			<img src="{%static 'images/desk.jpg'%}">
+			<form class="hind" method="POST">
+				{%csrf_token%}
+				
+				<label>E-mail: </label><br>
+				{%if form.errors%}
+				<span id="error-message">
+					{{form.email.errors}}</span>
+				{%endif%}
+
+				{{form.email}}<br>
+				
+				<label>Poruka: </label><br>
+				{%if form.errors%}
+					{{form.poruka.errors}}
+				{%endif%}
+			
+				{{form.poruka}}<br>
+				<button type="submit" class="none-button main-btn hind">Submit</button>
+			</form>
+
+		</div>
+	</div>
+
+{%endblock%}
+
+{%block javascript%} <script type="text/javascript" src="{%static 'js/main.js'%}"></script>{%endblock%}

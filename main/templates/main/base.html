@@ -1,0 +1,66 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Drzavna Matura
+	</title>
+	<meta http-equiv="Content-type" content="text/html; charset= utf-8" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="{%static 'css/base.css'%}">
+	{%block css%}{%endblock%}
+</head>
+<body>
+	<nav>
+		<div class="flexanje-between indent">
+			<a href="{%url 'home'%}"><img src="{%static 'images/LOGO.png'%}"></a>
+			<div class="navbar-ul"> 
+				
+				<ul class="mobile-links" id="mobile-links">
+					{%block mob_nav_links%}
+					<a href="{%url 'home'%}"><li class="pocetna active">POČETNA</li></a>
+					<a href="#container-2"><li class="predmeti-nav">PREDMETI</li></a>
+					<a href="#kontakt"><li class="kontakt-link">KONTAKT</li></a>
+					{%endblock%}
+				</ul>
+				<ul id="myLinks">			
+					 {%block nav_links%}
+					 <a href="{%url 'home'%}"><li class="active">POČETNA</li></a>
+					 <a href="#container-2"><li>PREDMETI</li></a>
+					 <a href="#kontakt"><li>KONTAKT</li></a>
+					{%endblock%}
+				</ul>
+
+			</div>
+			<i class="fas fa-bars" onclick="myFunction()"></i>
+		</div>
+		
+	</nav>
+
+
+	{%block content%}
+	{%endblock%}
+
+
+
+
+
+	<!--
+		TODO: uncomment footer
+	<footer>
+		<p>© 2020, Dino Krivić, All Rights Reserved</p>
+	</footer>
+	-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+	<script src="scroll.js" type="text/html"></script>
+	<script type="text/javascript" src="{%static 'js/base.js'%}"></script>
+	{%block javascript%}
+	{%endblock%}
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+{%extends 'main/base.html'%}
+{%load static%}
+
+{%block css%} 
+<link rel="stylesheet" href="{%static 'css/sidebar.css'%}">
+{%endblock%}
+
+
+{%block content%}
+<div class="indent mt-5">
+    {%block predmet%}
+    <p id="predmet" class="mb-4">HRVATSKI</p>
+    {%endblock%}
+    <div id="main">
+    <section id="sidebar">
+        <p id="pregled" class="razred">Pregled</p>
+
+        <div id="prvi-razred" class="razred">
+            <a class="drop" data-bs-toggle="collapse" href="#prvi_raz" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Prvi razred
+            </a>
+             
+            <div class="collapse" id="prvi_raz">
+               <ul class="sidebar-ul">
+                {%block naslovi_raz_1%}
+                  <a href=""><li>Prvi</li></a>
+                  <a href=""><li>Prvi</li></a>
+                  <a href=""><li>Prvi</li></a>
+                  <a href=""><li>Prvi</li></a>
+                {%endblock%}
+                {%if user.is_authenticated%}
+                <i class="fas fa-plus plus-icon" data-id="prvi-form"></i>
+                <form method="POST" id="prvi-form">
+                    {%csrf_token%}
+                    {{form.name}}
+                    <button type="submit" class="btn"><i class="fas fa-plus-square add-naslov"></i></button>
+                </form>
+                
+                {%endif%}
+               </ul>
+            </div>
+        </div>
+
+        <div id="drugi-razred" class="mt-1 mb-1 razred">
+            <a class="drop" data-bs-toggle="collapse" href="#drugi_raz" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Drugi razred
+            </a>
+             
+            <div class="collapse" id="drugi_raz">
+               <ul  class="sidebar-ul">
+                {%block naslovi_raz_2%}
+                <a href=""><li>Prvi</li></a>
+                <a href=""><li>Prvi</li></a>
+                <a href=""><li>Prvi</li></a>
+                <a href=""><li>Prvi</li></a>
+                {%endblock%}
+                  {%if user.is_authenticated%}
+                  <i class="fas fa-plus plus-icon" data-id="drugi-form"></i>
+                  <form method="POST" id="drugi-form">
+                      {%csrf_token%}
+                      {{form.name}}
+                      <button type="submit" class="btn"><i class="fas fa-plus-square add-naslov"></i></button>
+                  </form>
+                  
+                  {%endif%}
+               </ul>
+            </div>
+        </div>
+        <div id="treci-razred" class="mt-1 mb-1 razred">
+            <a class="drop" data-bs-toggle="collapse" href="#treci_raz" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Treći razred
+            </a>
+             
+            <div class="collapse" id="treci_raz">
+               <ul  class="sidebar-ul">
+                {%block naslovi_raz_3%}
+                    <a href=""><li>Prvi</li></a>
+                    <a href=""><li>Prvi</li></a>
+                    <a href=""><li>Prvi</li></a>
+                    <a href=""><li>Prvi</li></a>
+                {%endblock%}
+                  {%if user.is_authenticated%}
+                  <i class="fas fa-plus plus-icon" data-id="treci-form"></i>
+                  <form method="POST" id="treci-form">
+                      {%csrf_token%}
+                      {{form.name}}
+                      <button type="submit" class="btn"><i class="fas fa-plus-square add-naslov"></i></button>
+                  </form>
+                  
+                  {%endif%}
+               </ul>
+            </div>
+        </div>
+        <div id="cetvrti-razred" class="razred">
+            <a class="drop" data-bs-toggle="collapse" href="#cetvrti_raz" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Četvrti razred
+            </a>
+             
+            <div class="collapse" id="cetvrti_raz">
+               <ul class="sidebar-ul">
+                    {%block naslovi_raz_4%}
+                    <a href=""><li>Prvi</li></a>
+                    <a href=""><li>Prvi</li></a>
+                    <a href=""><li>Prvi</li></a>
+                    <a href=""><li>Prvi</li></a>
+                {%endblock%}
+                  {%if user.is_authenticated%}
+                  <i class="fas fa-plus plus-icon" data-id="cetvrti-form"></i>
+                  <form method="POST" id="cetvrti-form">
+                      {%csrf_token%}
+                      {{form.name}}
+                      <button type="submit" class="btn"><i class="fas fa-plus-square add-naslov"></i></button>
+                  </form>
+                  
+                  {%endif%}
+               </ul>
+            </div>
+        </div>
+       
+        <p id="matura" class="razred">Matura</p>
+    </section>
+
+    <hr class="hidden">
+    <section id="main-content">
+    {%block main%}
+
+    {%endblock%}
+    </section>
+    <hr class="hidden">
+    <section id="right-sidebar">
+        <p id="pojmovnik">Pojmovnik</p>
+        <ul class="pojmovnik">
+            {%block pojmovnik%}
+            <a href="#blandit"><li>blandit</li></a>
+            <a href=""><li>blandit</li></a>
+            <a href=""><li>blandit</li></a>
+            <a href=""><li>blandit</li></a>
+            <a href=""><li>blandit</li></a>
+            <a href=""><li>blandit</li></a>
+            {%endblock%}
+        </ul>
+    </section>
+
+    </div>
+</div>
+
+{%endblock%}
+
+{%block javascript%}
+<script type="text/javascript" src="{%static 'js/sidebar.js'%}"></script>
+{%block js2%}
+{%endblock%}
+{%endblock%}
